@@ -17,8 +17,12 @@ React.JS, React Redux, Firebase, Firestore, Authentication, Material UI
 
 ## Github Repository
 
+https://github.com/sphcastillo/linkedin_clone
+
 
 ## Deployed Site
+
+https://linkedin-backend-c08f2.web.app
 
 
 ## More info
