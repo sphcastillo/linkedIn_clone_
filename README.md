@@ -36,3 +36,6 @@ Professional website: www.builtbysophia.com,
 GitHub: https://github.com/sphcastillo,
 
 LinkedIn: https://www.linkedin.com/in/sophia-castillo-b89124133/
+
+<img src="src/images/linkedIn1.png" />
+<img src="src/images/linkedIn2.png" />
