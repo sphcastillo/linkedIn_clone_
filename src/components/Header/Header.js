@@ -8,11 +8,19 @@ import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import LinkedInIcon from "../../images/linkedin-icon.png";
 import HeaderOption from './HeaderOption';
-// import { useDispatch } from 'react-redux';
-// import { logout } from '../../features/userSlice';  
-// import { auth } from '../../firebase'; 
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/userSlice';  
+import { auth } from '../../base';
+
 
 function Header() {
+    const dispatch= useDispatch();  
+
+    const logoutOfApp = () => {
+        dispatch(logout());
+        auth.signOut();
+    };
+
     return (
         <div className="header">
             <div className="header__left">
@@ -31,7 +39,7 @@ function Header() {
                 <HeaderOption Icon={NotificationsIcon} title="Notifications" />
                 <HeaderOption 
                     title="Me" 
-                    // onClick={logoutOfApp}
+                    onClick={logoutOfApp}
                     avatar={true}
                 />
             </div>

@@ -38,9 +38,9 @@ function Feed() {
         e.preventDefault();
 
         db.collection("posts").add({
-            name: "Sophia",
-            description: "This is so Cool!",
-            message: "God Save the KING",
+            name: "Aundrea Bentley",
+            description: "From Ohio",
+            message: "This should be working",
             photoURL: "",
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
