@@ -7,46 +7,46 @@ import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 import ImageIcon from '@mui/icons-material/Image';
 import InputOption from './InputOption';
 import Post from './Post';
+import { db } from '../../base';
+import  firebase from 'firebase/compat/app';
 
-// import firebase from "firebase"
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../features/userSlice';
-import FlipMove from "react-flip-move";
-// import { db } from '../../firebase';
+// import { useSelector } from 'react-redux';
+// import { selectUser } from '../../features/userSlice';
+// import FlipMove from "react-flip-move";
+
 
 function Feed() {
 
-    const user = useSelector(selectUser);
     const [input, setInput] = useState('');
     const [posts, setPosts] = useState([]);
 
-    // useEffect(() => {
-    //     db.collection('posts')
-    //         .orderBy('timestamp', 'desc')
-    //         .onSnapshot((snapshot) => 
-    //             setPosts(snapshot.docs.map((doc) => 
-    //             ({
-    //                 id: doc.id,
-    //                 data: doc.data()
-    //             }))
-    //         )
-    //     );
-    // }, []);
+    useEffect(() => {
+        db.collection("posts")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((snapshot) => 
+            setPosts(
+                snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    data: doc.data(),
+            }))
+        )
+    )
 
-    // const sendPost = e => {
-    //     e.preventDefault();
+    }, []);
 
-    //     db.collection('posts').add({
-    //         name: user.displayName,
-    //         description: user.email,
-    //         message: input,
-    //         photoUrl: user.photoURL || "",
-    //         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    //     });
+    const sendPost  = (e) => {
+        e.preventDefault();
 
-    //     setInput('');
+        db.collection("posts").add({
+            name: "Sophia",
+            description: "This is so Cool!",
+            message: "God Save the KING",
+            photoURL: "",
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
 
-    // }
+        setInput("");
+    };
 
     return (
     <div className="feed">
@@ -54,8 +54,8 @@ function Feed() {
             <div placeholder="Start a post" className="feed__input">
                 <CreateIcon />
                 <form>
-                    <input value={input}  type="text" placeholder="Start a post" />
-                    <button type="submit">Send</button>
+                    <input value={input} onChange={e  => setInput(e.target.value)} type="text" placeholder="Start a post" />
+                    <button onClick={sendPost} type="submit">Send</button>
                 </form>
             </div>
             <div className="feed__inputOptions">
@@ -69,7 +69,7 @@ function Feed() {
 
     { /* Feed Posts */}
 
-        {/* <FlipMove>
+
             {posts.map(({id, data: {name, description, message, photoURL}}) => (
                 <Post 
                     key={id}
@@ -79,14 +79,10 @@ function Feed() {
                     photoURL={photoURL}
                 />
             ))}
-        </FlipMove> */}
-        <Post  
-            name="Michael Wood"
-            description="This is a test"
-            message="Wooohooo"
-        />
+
+        
 </div>
     )
 }
 
-export default Feed
+export default Feed;

@@ -7,7 +7,7 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import ShareIcon from '@mui/icons-material/Share';
 import SendIcon from '@mui/icons-material/Send';
 
-function Post({name, description, message, photoUrl}) {
+function Post({ name, description, message, photoURL }) {
     return (
         <div className="post">
             <div className="post__header">
