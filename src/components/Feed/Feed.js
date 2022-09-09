@@ -9,14 +9,13 @@ import InputOption from './InputOption';
 import Post from './Post';
 import { db } from '../../base';
 import  firebase from 'firebase/compat/app';
-
-// import { useSelector } from 'react-redux';
-// import { selectUser } from '../../features/userSlice';
-// import FlipMove from "react-flip-move";
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../features/userSlice';
+import FlipMove from 'react-flip-move';
 
 
 function Feed() {
-
+    const user  = useSelector(selectUser);
     const [input, setInput] = useState('');
     const [posts, setPosts] = useState([]);
 
@@ -38,10 +37,10 @@ function Feed() {
         e.preventDefault();
 
         db.collection("posts").add({
-            name: "Aundrea Bentley",
-            description: "From Ohio",
-            message: "This should be working",
-            photoURL: "",
+            name: user.displayName,
+            description: user.email,
+            message: input,
+            photoUrl: user.photoUrl || "",
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
 
@@ -55,6 +54,7 @@ function Feed() {
                 <CreateIcon />
                 <form>
                     <input value={input} onChange={e  => setInput(e.target.value)} type="text" placeholder="Start a post" />
+
                     <button onClick={sendPost} type="submit">Send</button>
                 </form>
             </div>
@@ -69,17 +69,17 @@ function Feed() {
 
     { /* Feed Posts */}
 
-
-            {posts.map(({id, data: {name, description, message, photoURL}}) => (
+        <FlipMove>
+            {posts.map(({id, data: {name, description, message, photoUrL}}) => (
                 <Post 
                     key={id}
                     name={name}
                     description={description}
                     message={message}
-                    photoURL={photoURL}
+                    photoUrL={photoUrL}
                 />
             ))}
-
+        </FlipMove>
         
 </div>
     )

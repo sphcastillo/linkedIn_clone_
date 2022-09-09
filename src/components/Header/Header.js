@@ -21,7 +21,7 @@ function Header() {
         auth.signOut();
     };
 
-    return (
+    return ( 
         <div className="header">
             <div className="header__left">
                 <img src={LinkedInIcon} alt="LinkedIn Icon" />

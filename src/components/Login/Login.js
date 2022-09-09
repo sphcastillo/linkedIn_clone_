@@ -15,8 +15,9 @@ function Login() {
     const loginToApp = (e) => {
         e.preventDefault();
 
-        auth.signInWithEmailAndPassword(email, password).then(
-        (userAuth) => {
+        auth
+        .signInWithEmailAndPassword(email, password)
+        .then(userAuth => {
             dispatch(
                 login({
                     email: userAuth.user.email,
@@ -39,7 +40,7 @@ function Login() {
         .then((userAuth) => {
             userAuth.user.updateProfile({
                 displayName: name,
-                photoURL: profilePicture,
+                photoUrl: profilePicture,
             })
             .then(() => {
                 // push user into the redux store
