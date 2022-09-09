@@ -1,8 +1,17 @@
 import React from 'react';
 import { Avatar } from '@mui/material';
 import Playa from "../../images/playadelrey.jpeg";
+import  "./Sidebar.css";
 
 function Sidebar() {
+
+    const recentItem = (topic) =>  {
+        <div className="sidebar__recentItem">
+            <span className="sidebar__hash">#</span>
+            <p>{topic}</p>
+        </div>
+    }
+
     return (
         <div className="sidebar">
             <div className="sidebar__top">
@@ -10,8 +19,8 @@ function Sidebar() {
                 <Avatar  className="sidebar__avatar">
 
                 </Avatar>
-                <h2></h2>
-                <h4></h4>
+                <h2>Sophia Castillo</h2>
+                <h4>sphcastillo@gmail.com</h4>
             </div>
 
             <div className="sidebar__stats">
