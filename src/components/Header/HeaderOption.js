@@ -13,7 +13,6 @@ function HeaderOption({avatar, Icon, title, onClick}) {
             {avatar && (
                 <Avatar 
                     className="headerOption__icon"
-                    src={user.photoUrl}
                 >
                     {user?.email[0]}
                 </Avatar>
