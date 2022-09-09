@@ -14,15 +14,20 @@ function App() {
     <div className="app">
         <Header />
 
-        {!user ? (
+        {/* {!user ? (
         <Login  />
       ) : (
         <div className="app__body">
         <Sidebar />
         <Feed />
+        <Widgets />
+      </div>
+      )} */}
+              <div className="app__body">
+        <Sidebar />
+        <Feed />
         {/* <Widgets /> */}
       </div>
-      )}
     </div>
   );
 }
