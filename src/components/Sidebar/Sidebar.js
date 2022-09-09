@@ -1,0 +1,60 @@
+import React from 'react';
+import { Avatar } from '@mui/material';
+import Playa from "../../images/playadelrey.jpeg";
+
+function Sidebar() {
+    return (
+        <div className="sidebar">
+            <div className="sidebar__top">
+                <img src={Playa} alt="Playa Del Rey"/>
+                <Avatar  className="sidebar__avatar">
+
+                </Avatar>
+                <h2></h2>
+                <h4></h4>
+            </div>
+
+            <div className="sidebar__stats">
+                <div className="sidebar__stat">
+                    <p>Who viewed you</p>
+                    <p className="sidebar__statNumber">2,543</p>
+                </div>
+                <div className="sidebar__stat">
+                    <p>Views on post</p>
+                    <p className="sidebar__statNumber">2,448</p>
+                </div>
+            </div>
+
+            <div className="sidebar__bottom">
+                <p>Recent</p>
+                <div className="sidebar__recentItem">
+                    <span className="sidebar__hash">#</span>
+                    <p>reactjs</p>
+                </div>
+                <div className="sidebar__recentItem">
+                    <span className="sidebar__hash">#</span>
+                    <p>programming</p>
+                </div>
+                <div className="sidebar__recentItem">
+                    <span className="sidebar__hash">#</span>
+                    <p>softwareengineering</p>
+                </div>
+                <div className="sidebar__recentItem">
+                    <span className="sidebar__hash">#</span>
+                    <p>design</p>
+                </div>
+                <div className="sidebar__recentItem">
+                    <span className="sidebar__hash">#</span>
+                    <p>developer</p>
+                </div>
+                {/* {recentItem('reactjs')}
+                {recentItem('programming')}
+                {recentItem('softwareengineering')}
+                {recentItem('design')}
+                {recentItem('developer')} */}
+            </div>
+        </div>
+    )
+}
+
+export default Sidebar;
